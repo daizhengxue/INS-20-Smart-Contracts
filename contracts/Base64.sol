@@ -13,7 +13,7 @@ library Base64 {
         uint256 len = data.length;
         if (len == 0) return "";
 
-        // multiply by 4/3 rounded up
+        // multiply by 4/3 rounded up (integer division rounds down)
         uint256 encodedLen = 4 * ((len + 2) / 3);
 
         // Add some extra buffer at the end
