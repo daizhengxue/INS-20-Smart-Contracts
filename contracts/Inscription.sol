@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./ERC20/IERC20.sol";
 import "./ERC721/ERC721.sol";
-import "./ERC721/ERC721.sol";
+import "./ERC721/IERC721.sol";
 import "./Base64.sol";
 
 struct Tick {
@@ -204,7 +204,7 @@ emit Inscribe(
     uint256 amountOrTokenID
   ) public override(ERC721, IERC20) {
     if (!nft2ft) {
-      ERC721._approve(spender, amountOrTokenID);
+      ERC721.approve(spender, amountOrTokenID);
     } else {
       address owner = msg.sender;
       _approve(owner, spender, amountOrTokenID);
